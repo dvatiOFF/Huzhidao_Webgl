@@ -4,8 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | startgame</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+      /* 添加自定义样式确保canvas大小正确 */
+      #unity-canvas {
+        width: 1280px !important;
+        height: 720px !important;
+      }
+      #unity-container {
+        width: 1280px !important;
+        height: 720px !important;
+      }
+    </style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
