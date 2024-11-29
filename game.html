@@ -116,16 +116,18 @@
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
       // Mobile device style
 
-      // Get device height and calculate width based on 720p aspect ratio
       const deviceHeight = window.innerHeight;
       const aspectRatio = 1280 / 720;
       const calculatedWidth = deviceHeight * aspectRatio;
 
-      // Dynamically create and apply viewport meta tag
+      // 动态创建并应用 viewport meta 标签 (仍然保留，作为初始值)
       var meta = document.createElement('meta');
       meta.name = 'viewport';
       meta.content = `width=${calculatedWidth}, height=${deviceHeight}, initial-scale=1.0, user-scalable=no`;
       document.getElementsByTagName('head')[0].appendChild(meta);
+
+      // 通过 JavaScript 设置 Canvas 的宽度
+      canvas.style.width = calculatedWidth + 'px';
 
       container.className = "unity-mobile";
       canvas.className = "unity-mobile";
