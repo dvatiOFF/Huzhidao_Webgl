@@ -14,26 +14,35 @@
     <meta name="x5-orientation" content="portrait">
 
     <style>
-      /* Base styles for the unity container */
+      /* 基础样式 */
       #unity-container {
         position: relative;
         width: 100%;
-        height: 100vh; /* Container height fills the viewport */
-        overflow: hidden; /* Hide overflowing content */
+        height: 100vh; /* 容器高度占满视口 */
+        overflow: hidden; /* 隐藏溢出的内容 */
       }
 
-      /* Center the canvas using Flexbox when on mobile */
-      #unity-container.unity-mobile {
+      /* 使用Flexbox居中显示Unity画布 */
+      #unity-container.unity-mobile,
+      #unity-container.unity-desktop {
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
-      /* Ensure canvas size is responsive on mobile */
+      /* 确保移动端的Canvas响应式 */
       #unity-canvas.unity-mobile {
-        width: 100vw; /* Initial value, overridden by JavaScript */
-        height: auto; /* Automatically adjust height to maintain aspect ratio */
-        max-width: 100%; /* Prevent canvas from exceeding the viewport width */
+        width: 100vw; /* 初始值，稍后会被JavaScript覆盖 */
+        height: auto; /* 高度自动调整以保持宽高比 */
+        max-width: 100%; /* 防止宽度超出视口 */
+      }
+
+      /* PC端Canvas样式 */
+      #unity-canvas.unity-desktop {
+        width: 1280px;
+        height: 720px;
+        max-width: 100%; /* 防止视口过小导致的溢出 */
+        max-height: 100%; /* 防止视口过小导致的溢出 */
       }
     </style>
 
@@ -142,9 +151,8 @@
         canvas.classList.add("unity-mobile");
 
     } else {
-      // Desktop style
-      canvas.style.width = "1280px";
-      canvas.style.height = "720px";
+        // PC端样式
+        canvas.classList.add("unity-desktop");
     }
 
       loadingBar.style.display = "block";
