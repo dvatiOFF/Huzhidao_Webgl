@@ -14,6 +14,23 @@
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
 
+    <style>
+      /*  确保 canvas 宽度与计算值一致 */
+      #unity-canvas.unity-mobile {
+        width: 100vw; /* 初始值，稍后会被 JavaScript 覆盖 */
+        height: auto; /* 高度自动调整以保持宽高比 */
+        max-width: 100%; /* 防止宽度超出屏幕 */
+      }
+  
+      /* 其他样式 */
+      #unity-container {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* 容器高度占满屏幕 */
+        overflow: hidden; /* 隐藏超出容器的内容 */
+      }
+    </style>
+
     <title>Unity WebGL Player | Huzhidao</title>
     <link rel="shortcut icon" href="./favicon.ico">
     <link rel="stylesheet" href="./style.css">
